@@ -19,8 +19,10 @@ class SignInViewController: UIViewController {
     private let tfStackView = UIStackView()
     private let emailStack = UIStackView()
     private let emailLbl = UILabel()
+    private let emailTf = TextFieldDesign(textFieldStyle: .email)
     private let passwordStack = UIStackView()
     private let passwordLbl = UILabel()
+    private let passwordTf = TextFieldDesign(textFieldStyle: .pasword)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +78,10 @@ class SignInViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(28)
             make.height.equalTo(1)
         }
+        
+        
+        
+        
         
     
     }

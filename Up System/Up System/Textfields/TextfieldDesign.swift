@@ -11,7 +11,9 @@ import SnapKit
 
 class TextFieldDesign: UITextField {
     var textFieldStyle: TextfieldBase
-    
+    private let horizontalStack = UIStackView()
+    private let inputTf = UITextField()
+
     
     init(textFieldStyle: TextfieldBase) {
         self.textFieldStyle = textFieldStyle
@@ -36,12 +38,36 @@ class TextFieldDesign: UITextField {
     
     
     private func emailTf() {
+        self.backgroundColor = .bgColorGoogleBtn
+        let tfIcon = UILabel()
+        tfIcon.text = "@"
+        
+        horizontalStack.addArrangedSubview(tfIcon)
+        horizontalStack.addArrangedSubview(inputTf)
         
     }
     
     private func passwordTf() {
+        self.backgroundColor = .bgColorGoogleBtn
+        let tfSymbol = UIImageView()
+        tfSymbol.image = UIImage(systemName: "key.circle")
         
+        horizontalStack.addArrangedSubview(tfSymbol)
+        horizontalStack.addArrangedSubview(inputTf)
     }
     
     
+    
+    private func textfieldDesign() {
+        self.layer.cornerRadius = 20
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.borderColorTf.cgColor
+        self.addSubview(horizontalStack)
+        horizontalStack.axis = .horizontal
+        
+        
+        self.snp.makeConstraints{ make in
+            make.height.equalTo(70)
+        }
+    }
 }
