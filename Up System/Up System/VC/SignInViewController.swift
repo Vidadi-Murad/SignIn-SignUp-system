@@ -18,7 +18,9 @@ class SignInViewController: UIViewController {
     private let dividerLine = UIView()
     private let tfStackView = UIStackView()
     private let emailStack = UIStackView()
+    private let emailLbl = UILabel()
     private let passwordStack = UIStackView()
+    private let passwordLbl = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
