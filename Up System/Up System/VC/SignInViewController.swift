@@ -13,6 +13,7 @@ class SignInViewController: UIViewController {
     
     private let headerText = UILabel()
     private let headerStack = UIStackView()
+    private let subTitle = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,8 @@ class SignInViewController: UIViewController {
     }
     
     private func setupLayout() {
+        view.addSubview(headerStack)
+        
     }
     
     private func setupAction() {
