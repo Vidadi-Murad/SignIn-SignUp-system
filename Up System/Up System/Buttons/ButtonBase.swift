@@ -6,3 +6,11 @@
 //
 
 import UIKit
+
+
+
+enum ButtonBase {
+    case google
+    case signIn
+    case signUp
+}
