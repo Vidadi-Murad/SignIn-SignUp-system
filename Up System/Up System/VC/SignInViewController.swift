@@ -12,7 +12,7 @@ class SignInViewController: UIViewController {
     
     
     private let headerText = UILabel()
-    
+    private let headerStack = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,10 @@ class SignInViewController: UIViewController {
     
     private func setupUI() {
         headerText.text = "Sign in"
-        headerText.color = .white
+        headerText.textColor = .white
     }
     
     private func setupLayout() {
-        
     }
     
     private func setupAction() {
