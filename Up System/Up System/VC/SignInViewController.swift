@@ -10,9 +10,26 @@ import SnapKit
 
 class SignInViewController: UIViewController {
     
+    
+    private let headerText = UILabel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .appBackground
     }
     
+    
+    
+    private func setupUI() {
+        
+    }
+    
+    private func setupLayout() {
+        
+    }
+    
+    private func setupAction() {
+        
+    }
 }
