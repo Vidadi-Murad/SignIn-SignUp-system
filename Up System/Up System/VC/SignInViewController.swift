@@ -80,10 +80,29 @@ class SignInViewController: UIViewController {
         }
         
         
+        view.addSubview(emailStack)
+        [emailLbl,emailTf].forEach{emailStack.addArrangedSubview($0)}
+        emailStack.axis = .vertical
+        emailStack.spacing = 10
+        
+        view.addSubview(passwordStack)
+        [passwordLbl,passwordTf].forEach{passwordStack.addArrangedSubview($0)}
+        passwordStack.axis = .vertical
+        passwordStack.spacing = 10
+        
+        
+        view.addSubview(tfStackView)
+        [emailStack,passwordStack].forEach{tfStackView.addArrangedSubview($0)}
+        tfStackView.axis = .vertical
+        tfStackView.spacing = 30
+        
+        tfStackView.snp.makeConstraints{ make in
+            make.top.equalTo(dividerLine.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(30)
+        }
         
         
         
-    
     }
     
     private func setupAction() {

@@ -19,6 +19,7 @@ class TextFieldDesign: UITextField {
         self.textFieldStyle = textFieldStyle
         super.init(frame: .zero)
         styleTf()
+        textfieldDesign()
     }
     
     required init?(coder: NSCoder) {
@@ -64,10 +65,14 @@ class TextFieldDesign: UITextField {
         self.layer.borderColor = UIColor.borderColorTf.cgColor
         self.addSubview(horizontalStack)
         horizontalStack.axis = .horizontal
-        
+        self.addSubview(inputTf)
         
         self.snp.makeConstraints{ make in
             make.height.equalTo(70)
+        }
+        inputTf.snp.makeConstraints{ make in
+            make.height.equalTo(70)
+            make.leading.trailing.equalToSuperview().inset(10)
         }
     }
 }
