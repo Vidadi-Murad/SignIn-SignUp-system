@@ -17,12 +17,15 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .appBackground
+        setupUI()
+        setupLayout()
+        setupAction()
     }
     
     
     
     private func setupUI() {
-        
+        headerText.text = "Sign in"
     }
     
     private func setupLayout() {
