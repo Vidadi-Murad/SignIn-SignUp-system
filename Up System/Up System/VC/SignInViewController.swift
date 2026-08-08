@@ -28,11 +28,28 @@ class SignInViewController: UIViewController {
     private func setupUI() {
         headerText.text = "Sign in"
         headerText.textColor = .white
+        headerText.font = UIFont(name:"DMSans-Bold", size: 48)
+        
+        subTitle.text = "Kindly enter your details below in order to sign in to your account"
+        subTitle.textColor = .white
+        subTitle.font = UIFont(name:"DMSans-Medium", size: 16)
+        subTitle.numberOfLines = 0
     }
     
     private func setupLayout() {
         view.addSubview(headerStack)
+        [headerText,subTitle].forEach{headerStack.addArrangedSubview($0)}
+        headerStack.axis = .vertical
+        headerStack.spacing = 12
         
+        
+        
+        headerStack.snp.makeConstraints{ make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(64)
+            make.leading.trailing.equalToSuperview().inset(30)
+        }
+        
+    
     }
     
     private func setupAction() {
