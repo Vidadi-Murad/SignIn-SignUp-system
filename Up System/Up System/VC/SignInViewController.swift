@@ -16,6 +16,9 @@ class SignInViewController: UIViewController {
     private let subTitle = UILabel()
     private let googleBtn = ButtonDesign(ButtonStyle: .google)
     private let dividerLine = UIView()
+    private let tfStackView = UIStackView()
+    private let emailStack = UIStackView()
+    private let passwordStack = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
