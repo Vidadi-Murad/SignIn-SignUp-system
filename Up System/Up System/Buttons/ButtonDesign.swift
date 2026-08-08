@@ -29,9 +29,9 @@ class ButtonDesign: UIButton {
         case .google:
             googleBtn()
         case .signIn:
-            
+            print("hellooooo")
         case .signUp:
-            
+            print("hellooooo")
         }
     }
     
@@ -39,11 +39,17 @@ class ButtonDesign: UIButton {
     
     private func googleBtn() {
         self.backgroundColor = UIColor.bgColorGoogleBtn
+        self.setTitle("Sign up with Google", for: .normal)
+        self.titleLabel?.font = UIFont(name:"DMSans-Bold",size:16)
     }
     
     
     private func designBtn() {
+        self.layer.cornerRadius = 20
         
+        self.snp.makeConstraints{ make in
+            make.height.equalTo(70)
+        }
     }
     
 }

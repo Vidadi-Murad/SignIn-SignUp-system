@@ -14,6 +14,8 @@ class SignInViewController: UIViewController {
     private let headerText = UILabel()
     private let headerStack = UIStackView()
     private let subTitle = UILabel()
+    private let googleBtn = ButtonDesign(ButtonStyle: .google)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +44,17 @@ class SignInViewController: UIViewController {
         headerStack.axis = .vertical
         headerStack.spacing = 12
         
-        
-        
         headerStack.snp.makeConstraints{ make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(64)
             make.leading.trailing.equalToSuperview().inset(30)
         }
+        
+        view.addSubview(googleBtn)
+        googleBtn.snp.makeConstraints{ make in
+            make.top.equalTo(subTitle.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(30)
+        }
+        
         
     
     }
