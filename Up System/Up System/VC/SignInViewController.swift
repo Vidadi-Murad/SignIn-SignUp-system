@@ -15,7 +15,7 @@ class SignInViewController: UIViewController {
     private let headerStack = UIStackView()
     private let subTitle = UILabel()
     private let googleBtn = ButtonDesign(ButtonStyle: .google)
-    
+    private let dividerLine = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +33,11 @@ class SignInViewController: UIViewController {
         headerText.font = UIFont(name:"DMSans-Bold", size: 48)
         
         subTitle.text = "Kindly enter your details below in order to sign in to your account"
-        subTitle.textColor = .white
+        subTitle.textColor = .init(white: 1.0, alpha: 0.75)
         subTitle.font = UIFont(name:"DMSans-Medium", size: 16)
         subTitle.numberOfLines = 0
+        
+        dividerLine.backgroundColor = .dividerLineBg
     }
     
     private func setupLayout() {

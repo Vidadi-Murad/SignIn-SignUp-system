@@ -40,6 +40,7 @@ class ButtonDesign: UIButton {
     private func googleBtn() {
         self.backgroundColor = UIColor.bgColorGoogleBtn
         self.setTitle("Sign up with Google", for: .normal)
+      
         self.titleLabel?.font = UIFont(name:"DMSans-Bold",size:16)
     }
     
