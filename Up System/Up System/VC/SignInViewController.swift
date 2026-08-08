@@ -43,6 +43,14 @@ class SignInViewController: UIViewController {
         subTitle.numberOfLines = 0
         
         dividerLine.backgroundColor = .dividerLineBg
+        
+        emailLbl.text = "Email address"
+        emailLbl.font = UIFont(name:"DMSans-Medium",size:16)
+        emailLbl.textColor = .init(white:1.0, alpha: 0.75)
+        
+        passwordLbl.text = "Password"
+        passwordLbl.font = UIFont(name:"DMSans-Medium",size:16)
+        passwordLbl.textColor = .init(white:1.0, alpha: 0.75)
     }
     
     private func setupLayout() {
