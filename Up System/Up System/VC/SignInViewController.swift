@@ -23,7 +23,7 @@ class SignInViewController: UIViewController {
     private let passwordStack = UIStackView()
     private let passwordLbl = UILabel()
     private let passwordTf = TextFieldDesign(textFieldStyle: .pasword)
-    
+    private let signInButton = ButtonDesign(ButtonStyle: .signIn)
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .appBackground
@@ -102,6 +102,11 @@ class SignInViewController: UIViewController {
         }
         
         
+        
+        
+        
+        
+      
         
     }
     

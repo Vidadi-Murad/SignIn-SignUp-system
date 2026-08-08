@@ -13,7 +13,7 @@ class TextFieldDesign: UITextField {
     var textFieldStyle: TextfieldBase
     private let horizontalStack = UIStackView()
     private let inputTf = UITextField()
-
+    let tfIcon = UILabel()
     
     init(textFieldStyle: TextfieldBase) {
         self.textFieldStyle = textFieldStyle
@@ -40,9 +40,9 @@ class TextFieldDesign: UITextField {
     
     private func emailTf() {
         self.backgroundColor = .bgColorGoogleBtn
-        let tfIcon = UILabel()
         tfIcon.text = "@"
-        
+        tfIcon.font = UIFont(name:"DMSans-Regular",size:20)
+        tfIcon.textColor = .init(white: 1.0, alpha: 0.5)
         horizontalStack.addArrangedSubview(tfIcon)
         horizontalStack.addArrangedSubview(inputTf)
         
@@ -50,10 +50,10 @@ class TextFieldDesign: UITextField {
     
     private func passwordTf() {
         self.backgroundColor = .bgColorGoogleBtn
-        let tfSymbol = UIImageView()
-        tfSymbol.image = UIImage(systemName: "key.circle")
-        
-        horizontalStack.addArrangedSubview(tfSymbol)
+        tfIcon.text = "**"
+        tfIcon.font = UIFont(name:"DMSans-Regular",size:20)
+        tfIcon.textColor = .init(white: 1.0, alpha: 0.5)
+        horizontalStack.addArrangedSubview(tfIcon)
         horizontalStack.addArrangedSubview(inputTf)
     }
     
@@ -65,7 +65,17 @@ class TextFieldDesign: UITextField {
         self.layer.borderColor = UIColor.borderColorTf.cgColor
         self.addSubview(horizontalStack)
         horizontalStack.axis = .horizontal
+        horizontalStack.spacing = 5
+        horizontalStack.snp.makeConstraints{ make in
+            make.leading.equalToSuperview().inset(10)
+            make.centerY.equalToSuperview()
+        }
+        
         self.addSubview(inputTf)
+        inputTf.textColor = .white
+        inputTf.font = UIFont(name:"DMSans-Regular",size:20)
+        
+        
         
         self.snp.makeConstraints{ make in
             make.height.equalTo(70)

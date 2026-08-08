@@ -29,7 +29,7 @@ class ButtonDesign: UIButton {
         case .google:
             googleBtn()
         case .signIn:
-            print("hellooooo")
+            signIn()
         case .signUp:
             print("hellooooo")
         }
@@ -44,6 +44,13 @@ class ButtonDesign: UIButton {
         self.titleLabel?.font = UIFont(name:"DMSans-Bold",size:16)
     }
     
+    
+    private func signIn() {
+        self.backgroundColor = .signInBtnBg
+        self.setTitle("Sign in", for:.normal)
+        self.setTitleColor(.white, for:.normal)
+        self.titleLabel?.font = UIFont(name:"DMSans-Bold",size: 20)
+    }
     
     private func designBtn() {
         self.layer.cornerRadius = 20
