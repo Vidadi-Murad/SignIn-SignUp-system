@@ -57,6 +57,12 @@ class SignInViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(30)
         }
         
+        view.addSubview(dividerLine)
+        dividerLine.snp.makeConstraints{ make in
+            make.top.equalTo(googleBtn.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(28)
+            make.height.equalTo(1)
+        }
         
     
     }
