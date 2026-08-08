@@ -26,6 +26,7 @@ class SignInViewController: UIViewController {
     
     private func setupUI() {
         headerText.text = "Sign in"
+        headerText.color = .white
     }
     
     private func setupLayout() {
