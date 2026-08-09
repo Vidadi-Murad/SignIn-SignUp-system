@@ -27,6 +27,7 @@ class SignInViewController: UIViewController {
     private let signUpSentence = UIStackView()
     private let questSentence = UILabel()
     private let signUpBtn = UIButton()
+    private let forgetPassAndSignUpStack = UIStackView()
     private let signInButton = ButtonDesign(ButtonStyle: .signIn)
     
     override func viewDidLoad() {
@@ -122,19 +123,35 @@ class SignInViewController: UIViewController {
         }
         
         
-        
+        /*
         view.addSubview(forgetPassBtn)
         forgetPassBtn.snp.makeConstraints{ make in
             make.top.equalTo(tfStackView.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
         }
-        
+        */
         
         view.addSubview(signUpSentence)
         [questSentence,signUpBtn].forEach{signUpSentence.addArrangedSubview($0)}
         signUpSentence.axis = .horizontal
         signUpSentence.spacing = 8
       
+        
+        
+        view.addSubview(forgetPassAndSignUpStack)
+        [forgetPassBtn,signUpSentence].forEach{forgetPassAndSignUpStack.addArrangedSubview($0)}
+        forgetPassAndSignUpStack.axis = .vertical
+        forgetPassAndSignUpStack.spacing = 15
+        
+        forgetPassAndSignUpStack.snp.makeConstraints { make in
+            make.top.equalTo(tfStackView.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+        }
+        
+        
+        
+        
+        
         
     }
     
