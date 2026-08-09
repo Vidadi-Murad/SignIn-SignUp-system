@@ -24,6 +24,8 @@ class SignInViewController: UIViewController {
     private let passwordLbl = UILabel()
     private let passwordTf = TextFieldDesign(textFieldStyle: .pasword)
     private let forgetPassBtn = UIButton()
+    private let signUpSentence = UIStackView()
+    
     private let signInButton = ButtonDesign(ButtonStyle: .signIn)
     
     override func viewDidLoad() {
@@ -58,7 +60,10 @@ class SignInViewController: UIViewController {
         
         
         forgetPassBtn.setTitle("Forgot password?", for: .normal)
-        forgetPassBtn.setTitleColor(., for: <#T##UIControl.State#>)
+        forgetPassBtn.setTitleColor(.forgotpassbtn, for: .normal)
+        forgetPassBtn.titleLabel?.font = UIFont(name:"DMSans-Medium",size:16)
+        
+        
     }
     
     private func setupLayout() {
@@ -110,7 +115,10 @@ class SignInViewController: UIViewController {
         
         
         view.addSubview(forgetPassBtn)
-        forgetPassBtn.
+        forgetPassBtn.snp.makeConstraints{ make in
+            make.top.equalTo(tfStackView.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+        }
         
         
       
