@@ -123,14 +123,6 @@ class SignInViewController: UIViewController {
         }
         
         
-        /*
-        view.addSubview(forgetPassBtn)
-        forgetPassBtn.snp.makeConstraints{ make in
-            make.top.equalTo(tfStackView.snp.bottom).offset(30)
-            make.centerX.equalToSuperview()
-        }
-        */
-        
         view.addSubview(signUpSentence)
         [questSentence,signUpBtn].forEach{signUpSentence.addArrangedSubview($0)}
         signUpSentence.axis = .horizontal
@@ -141,15 +133,19 @@ class SignInViewController: UIViewController {
         view.addSubview(forgetPassAndSignUpStack)
         [forgetPassBtn,signUpSentence].forEach{forgetPassAndSignUpStack.addArrangedSubview($0)}
         forgetPassAndSignUpStack.axis = .vertical
-        forgetPassAndSignUpStack.spacing = 15
+        forgetPassAndSignUpStack.spacing = 10
         
         forgetPassAndSignUpStack.snp.makeConstraints { make in
-            make.top.equalTo(tfStackView.snp.bottom).offset(30)
+            make.top.equalTo(tfStackView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
         }
         
         
-        
+        view.addSubview(signInButton)
+        signInButton.snp.makeConstraints{ make in
+            make.top.equalTo(forgetPassAndSignUpStack.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(30)
+        }
         
         
         
