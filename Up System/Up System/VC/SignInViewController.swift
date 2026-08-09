@@ -25,7 +25,8 @@ class SignInViewController: UIViewController {
     private let passwordTf = TextFieldDesign(textFieldStyle: .pasword)
     private let forgetPassBtn = UIButton()
     private let signUpSentence = UIStackView()
-    
+    private let questSentence = UILabel()
+    private let signUpBtn = UIButton()
     private let signInButton = ButtonDesign(ButtonStyle: .signIn)
     
     override func viewDidLoad() {
@@ -61,7 +62,15 @@ class SignInViewController: UIViewController {
         
         forgetPassBtn.setTitle("Forgot password?", for: .normal)
         forgetPassBtn.setTitleColor(.forgotpassbtn, for: .normal)
-        forgetPassBtn.titleLabel?.font = UIFont(name:"DMSans-Medium",size:16)
+        forgetPassBtn.titleLabel?.font = UIFont(name:"DMSans-Bold",size:16)
+        
+        questSentence.text = "Don't have an account?"
+        questSentence.font = UIFont(name:"DMSans-Medium",size:16)
+        questSentence.textColor = .init(white:1.0, alpha:0.75)
+        
+        signUpBtn.setTitle("Sign up", for: .normal)
+        signUpBtn.setTitleColor(.forgotpassbtn, for: .normal)
+        signUpBtn.titleLabel?.font = UIFont(name:"DMSans-Bold",size:16)
         
         
     }
@@ -121,6 +130,10 @@ class SignInViewController: UIViewController {
         }
         
         
+        view.addSubview(signUpSentence)
+        [questSentence,signUpBtn].forEach{signUpSentence.addArrangedSubview($0)}
+        signUpSentence.axis = .horizontal
+        signUpSentence.spacing = 8
       
         
     }
