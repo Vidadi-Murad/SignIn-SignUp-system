@@ -9,17 +9,17 @@ import UIKit
 import SnapKit
 
 
-class TextFieldDesign: UITextField {
+class TextFieldDesign: UIView {
     var textFieldStyle: TextfieldBase
-    private let horizontalStack = UIStackView()
+    //private let horizontalStack = UIStackView()
     private let inputTf = UITextField()
-    let tfIcon = UILabel()
+    let eyeSlash = UIButton()
     
     init(textFieldStyle: TextfieldBase) {
         self.textFieldStyle = textFieldStyle
         super.init(frame: .zero)
-        styleTf()
         textfieldDesign()
+        styleTf()
     }
     
     required init?(coder: NSCoder) {
@@ -39,22 +39,31 @@ class TextFieldDesign: UITextField {
     
     
     private func emailTf() {
-        self.backgroundColor = .bgColorGoogleBtn
-        tfIcon.text = "@"
-        tfIcon.font = UIFont(name:"DMSans-Regular",size:20)
-        tfIcon.textColor = .init(white: 1.0, alpha: 0.5)
-        horizontalStack.addArrangedSubview(tfIcon)
-        horizontalStack.addArrangedSubview(inputTf)
-        
+        inputTf.keyboardType = .emailAddress
     }
     
     private func passwordTf() {
-        self.backgroundColor = .bgColorGoogleBtn
-        tfIcon.text = "**"
-        tfIcon.font = UIFont(name:"DMSans-Regular",size:20)
-        tfIcon.textColor = .init(white: 1.0, alpha: 0.5)
-        horizontalStack.addArrangedSubview(tfIcon)
-        horizontalStack.addArrangedSubview(inputTf)
+        inputTf.isSecureTextEntry = true
+        eyeSlash.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        eyeSlash.setTitleColor(.signInBtnBg, for: .normal)
+        eyeSlash.addTarget(self, action: #selector(changeEye), for: .touchUpInside)
+        self.addSubview(eyeSlash)
+        
+        eyeSlash.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview().inset(20)
+            make.size.equalTo(25)
+            make.centerY.equalToSuperview()
+        }
+    }
+    
+    
+    @objc func changeEye() {
+        inputTf.isSecureTextEntry.toggle()
+        if inputTf.isSecureTextEntry {
+            eyeSlash.setImage(UIImage(systemName:"eye.slash.fill"), for: .normal)
+        } else {
+            eyeSlash.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        }
     }
     
     
@@ -63,14 +72,6 @@ class TextFieldDesign: UITextField {
         self.layer.cornerRadius = 20
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.borderColorTf.cgColor
-        self.addSubview(horizontalStack)
-        horizontalStack.axis = .horizontal
-        horizontalStack.spacing = 5
-        horizontalStack.snp.makeConstraints{ make in
-            make.leading.equalToSuperview().inset(10)
-            make.centerY.equalToSuperview()
-        }
-        
         self.addSubview(inputTf)
         inputTf.textColor = .white
         inputTf.font = UIFont(name:"DMSans-Regular",size:20)
@@ -82,7 +83,8 @@ class TextFieldDesign: UITextField {
         }
         inputTf.snp.makeConstraints{ make in
             make.height.equalTo(70)
-            make.leading.trailing.equalToSuperview().inset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
     }
 }
+
