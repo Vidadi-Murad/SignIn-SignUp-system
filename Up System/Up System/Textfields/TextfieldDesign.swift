@@ -9,11 +9,12 @@ import UIKit
 import SnapKit
 
 
-class TextFieldDesign: UIView {
+class TextFieldDesign: UITextField {
     var textFieldStyle: TextfieldBase
     //private let horizontalStack = UIStackView()
     private let inputTf = UITextField()
     let eyeSlash = UIButton()
+    
     
     init(textFieldStyle: TextfieldBase) {
         self.textFieldStyle = textFieldStyle
@@ -44,7 +45,7 @@ class TextFieldDesign: UIView {
     
     private func passwordTf() {
         inputTf.isSecureTextEntry = true
-        eyeSlash.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        eyeSlash.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         eyeSlash.setTitleColor(.signInBtnBg, for: .normal)
         eyeSlash.addTarget(self, action: #selector(changeEye), for: .touchUpInside)
         self.addSubview(eyeSlash)
